@@ -10,24 +10,21 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var imageView = UIImageView()
+  
+     var imageView = UIImageView()
    
-  
-  
-    
+
     @IBOutlet weak var btnSqaureOutlet: UIButton!
     @IBOutlet weak var btnCircleOutlet: UIButton!
     @IBOutlet weak var btnRectangleOutlet: UIButton!
   
-    override func viewDidLoad()
-    
-    {
+    override func viewDidLoad(){
         super.viewDidLoad()
         self.btnCircleOutlet.layer.cornerRadius = self.btnCircleOutlet.frame.size.width / 2
         self.btnRectangleOutlet.layer.cornerRadius = 5
         self.btnSqaureOutlet.layer.cornerRadius = 5
+      
         
-       
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,47 +34,43 @@ class ViewController: UIViewController {
 
 
     @IBAction func btnCircleAction(sender: AnyObject)
-    
     {
-        let x = self.view.frame.size.width / 2
-        let y = self.view.frame.size.height / 2
-      
-        
-        imageView.backgroundColor = UIColor.whiteColor()
-        imageView = UIImageView(frame: CGRectMake(x, y, 200, 200))
-       
+       imageView.center = self.view.center
+        imageView.frame.size.width = 200
+        imageView.frame.size.height = 200
         imageView.layer.cornerRadius = imageView.frame.size.width / 2
-        imageView.clipsToBounds = true
         imageView.backgroundColor = UIColor.greenColor()
-        imageView.contentMode = UIViewContentMode.ScaleAspectFit
         self.view.addSubview(imageView)
         
-      
-    }
+        }
+    
     @IBAction func btnSquareAction(sender: AnyObject)
-        
     {
-        let x = view.center.x
-        let y = view.center.y
-        imageView.backgroundColor = UIColor.whiteColor()
-        imageView = UIImageView(frame: CGRectMake(x, y, 200, 200))
-        imageView.clipsToBounds = true
+        
+      
+        imageView.center = self.view.center
+        imageView.frame.size.width = 200
+        imageView.frame.size.height = 200
+        if imageView.layer.cornerRadius != 0.0
+        {
+        imageView.layer.cornerRadius = 0.0
+        }
         imageView.backgroundColor = UIColor.blueColor()
-        imageView.contentMode = UIViewContentMode.ScaleAspectFit
         self.view.addSubview(imageView)
         
     }
     
     @IBAction func btnRectagleAction(sender: AnyObject)
     {
-        let x = view.center.x
-        let y = view.center.y
-
-        imageView.backgroundColor = UIColor.whiteColor()
-        imageView = UIImageView(frame: CGRectMake(x,y, 250, 200))
+         imageView.center = self.view.center
+        if imageView.layer.cornerRadius != 0.0
+        {
+            imageView.layer.cornerRadius = 0.0
+        }
+        imageView.frame.size.width = 250
+        imageView.frame.size.height = 200
         imageView.clipsToBounds = true
         imageView.backgroundColor = UIColor.yellowColor()
-        imageView.contentMode = UIViewContentMode.ScaleAspectFit
         self.view.addSubview(imageView)
     }
 }
